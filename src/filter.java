@@ -33,6 +33,7 @@ public class filter {
 
     }
 
+    //checks if the data is integer type
     private boolean isInt(String data){
         boolean localDecision =false;
         try {
@@ -41,6 +42,12 @@ public class filter {
         } catch (NumberFormatException e) {
             System.out.println("Error while processing.");
         }
+        return localDecision;
+    }
+
+    //checks if the data is a valid country
+    private boolean isCountry(String data){
+        boolean localDecision =false;
         return localDecision;
     }
 
