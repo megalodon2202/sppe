@@ -1,23 +1,20 @@
 import java.util.ArrayList;
 public class analysis {
     private dbAccessor dbAccess;
+    private metric dbMetric;
     public analysis(){
         dbAccess=new dbAccessor();
+        dbMetric = new metric();
+
     }
 
     public void analyzeByCustomer(String id){
-        ArrayList<String[]>localData = new ArrayList<String[]>();
-        for(int i=0; i<dbAccess.getColG().size(); i++){
-            if(dbAccess.getColG().get(i).compareToIgnoreCase(id)==0){
-                localData.add(dbAccess.getRow(i));
-            }
-        }
+        ArrayList<String[]>localData = dbMetric.searchByCustomer(id);
 
-        //summery
+        //summary
 
         //comparison
 
-        //return
-
-    }
-}
+        //whole info return & change void
+            }
+        }
