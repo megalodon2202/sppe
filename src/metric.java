@@ -23,7 +23,7 @@ public class metric {
     //returns an ArrayList of String Array
     //low<=x & high>=x
     //if want an exact price, low==high
-    public ArrayList<String[]> searchByUnitprice(int low, int high){
+    public ArrayList<String[]> searchByUnitPrice(int low, int high){
         ArrayList<String[]>data=new ArrayList<String[]>();
         //parsh
         return data;
