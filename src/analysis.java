@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 public class analysis {
-    private dbAccessor dbAccess;
     private metric dbMetric;
     public analysis(){
-        dbAccess=new dbAccessor();
         dbMetric = new metric();
 
     }
