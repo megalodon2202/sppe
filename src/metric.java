@@ -44,6 +44,19 @@ public class metric {
         return data;
     }
 
+    public ArrayList<String[]> searchByCustomer(String id){
+        ArrayList<String[]>data=new ArrayList<String[]>();
+        //jayed
+        return data;
+    }
+
+    //options: spring, summer, fall, winter
+    public ArrayList<String[]> searchByProduct(String stockCode){
+        ArrayList<String[]>data=new ArrayList<String[]>();
+        //jayed
+        return data;
+    }
+
     //test your metric
     public void toString(ArrayList<String[]> data){
         String[] row;
