@@ -27,7 +27,16 @@ public class filter {
             }
         }
         //check colE
-        //check colF
+        //check colF (float)
+        ArrayList<String> colF = dbAccess.getColF();
+        for(int i=1; i<colF.size(); i++){
+            if(colF.get(i)!=null||colF.get(i)!=""){
+                System.out.print(colF.get(i)+"\n");
+                if(!isFloat(colF.get(i))){
+                    decision=false;
+                }
+            }
+        }
         //check colG
         //check colH
 
@@ -44,6 +53,20 @@ public class filter {
         }
         return localDecision;
     }
+
+    //checks if the data is integer type
+    private boolean isFloat(String data){
+        boolean localDecision =false;
+        try {
+            float checker = Float.parseFloat(data);
+            localDecision = true;
+        } catch (NumberFormatException e) {
+            System.out.println("Error while processing.");
+        }
+        return localDecision;
+    }
+
+
 
     //checks if the data is a valid country
     private boolean isCountry(String data){
