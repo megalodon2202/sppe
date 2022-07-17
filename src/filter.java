@@ -1,30 +1,50 @@
 import java.util.ArrayList;
 
 public class filter {
-    private ArrayList<String> rawData;
-    private boolean approval;
+    private dbAccessor dbAccess;
+    private boolean decision;
 
     public filter(){
-        db dbObj = new db();
-        rawData = dbObj.getDatabase();
+        dbAccess = new dbAccessor();
+        decision=true;
+        infoValidator();
     }
 
-    private boolean infoValidator(){
-        boolean decision=true;
+    private void infoValidator(){
 
         //check colA
         //check colB
         //check colC
-        //check colD
+
+        //check colD (int)
+        ArrayList<String> colD = dbAccess.getColD();
+        for(int i=1; i<colD.size(); i++){
+            if(colD.get(i)!=null||colD.get(i)!=""){
+                System.out.print(colD.get(i)+"\n");
+                if(!isInt(colD.get(i))){
+                    decision=false;
+                }
+            }
+        }
         //check colE
         //check colF
         //check colG
         //check colH
 
-        return decision;
+    }
+
+    private boolean isInt(String data){
+        boolean localDecision =false;
+        try {
+            int checker = Integer.parseInt(data);
+            localDecision = true;
+        } catch (NumberFormatException e) {
+            System.out.println("Error while processing.");
+        }
+        return localDecision;
     }
 
     public boolean getApproval(){
-        return approval;
+        return decision;
     }
 }
