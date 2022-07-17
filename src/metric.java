@@ -12,7 +12,7 @@ public class metric {
         ArrayList<String[]>data=new ArrayList<String[]>();
         ArrayList<String>colHData = dbAccess.getColH();
         for(int i=0; i<colHData.size(); i++){
-            if(colHData.get(i).compareTo(country)==0){
+            if(colHData.get(i).compareToIgnoreCase(country)==0){
                 data.add(dbAccess.getRow(i));
             }
         }
