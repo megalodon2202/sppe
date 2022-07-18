@@ -76,7 +76,7 @@ public class metric {
     //metric: search by product name
     public ArrayList<String[]> searchByProduct(String stockCode){
         ArrayList<String[]>data=new ArrayList<String[]>();
-        //jayed
+        //jashan
         return data;
     }
 
