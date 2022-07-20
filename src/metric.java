@@ -87,11 +87,20 @@ public class metric {
     }
 
     //metric: search by description
-    // returns an ArrayList of String Array
+    //returns an ArrayList of String Array
     //E.g. if user asks mug, the algorithm go through descriptions and search for mug
     //and return every row associated with that information.
     //user input can be one word or multiple
-    public ArrayList<String[]> searchByDescription(String opinion){
+    public ArrayList<String[]> searchByDescription(String info){
+        ArrayList<String[]>data=new ArrayList<String[]>();
+        //jashan
+        return data;
+    }
+
+    //metric: request maintainer for the user interface
+    //even if the request is not valid/complete
+    //program won't crash and try to return by assumption
+    public ArrayList<String[]> reqMaintainer(String[] info){
         ArrayList<String[]>data=new ArrayList<String[]>();
         return data;
     }
