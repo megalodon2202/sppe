@@ -74,10 +74,10 @@ public class metric {
     }
 
     //metric: search by product name
+    //returns an ArrayList of String Array
     public ArrayList<String[]> searchByProduct(String stockCode){
         ArrayList<String[]>data=new ArrayList<String[]>();
         ArrayList<String>colBData = dbAccess.getColB();
-
         for(int i=0; i<colBData.size(); i++){
             if(colBData.get(i).compareToIgnoreCase(stockCode)==0){
                 data.add(dbAccess.getRow(i));
