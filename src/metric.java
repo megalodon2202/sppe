@@ -22,7 +22,7 @@ public class metric {
     //metric: Search by StockCode
     //returns an ArrayList of String Array
     //each ArrayList is an individual row
-    public ArrayList<String[]> searchByCountry(String stockCode){
+    public ArrayList<String[]> searchByStockCode(String stockCode){
         ArrayList<String[]>data=new ArrayList<String[]>();
         ArrayList<String>colBData = dbAccess.getColB();
 
