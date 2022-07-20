@@ -1,6 +1,7 @@
+import java.io.IOException;
 import java.util.ArrayList;
 public class console {
-    public static void main(String[]args){
+    public static void main(String[]args) throws IOException{
         System.out.println("Testing...");
         metric info = new metric();
         dbAccessor t = new dbAccessor();

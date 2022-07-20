@@ -1,7 +1,8 @@
+import java.io.IOException;
 import java.util.ArrayList;
 public class analysis {
     private metric dbMetric;
-    public analysis(){
+    public analysis() throws IOException{
         dbMetric = new metric();
 
     }
