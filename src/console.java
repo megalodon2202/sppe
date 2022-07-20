@@ -9,7 +9,7 @@ public class console {
         System.out.println("Total result: "+info.searchByCountry("france").size());
         filter f = new filter();
         System.out.println(f.getApproval());
-        info.toString(info.searchByStockCode("85123A"));
+        info.toString(info.searchByProduct("85123A"));
     }
 
 

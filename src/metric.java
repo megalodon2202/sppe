@@ -19,21 +19,6 @@ public class metric {
         return data;
     }
 
-    //metric: Search by StockCode
-    //returns an ArrayList of String Array
-    //each ArrayList is an individual row
-    public ArrayList<String[]> searchByStockCode(String stockCode){
-        ArrayList<String[]>data=new ArrayList<String[]>();
-        ArrayList<String>colBData = dbAccess.getColB();
-
-        for(int i=0; i<colBData.size(); i++){
-            if(colBData.get(i).compareToIgnoreCase(stockCode)==0){
-                data.add(dbAccess.getRow(i));
-            }
-        }
-        return data;
-    }
-
     //metric: search by price
     //returns an ArrayList of String Array
     //low<=x & high>=x
@@ -91,7 +76,13 @@ public class metric {
     //metric: search by product name
     public ArrayList<String[]> searchByProduct(String stockCode){
         ArrayList<String[]>data=new ArrayList<String[]>();
-        //jashan
+        ArrayList<String>colBData = dbAccess.getColB();
+
+        for(int i=0; i<colBData.size(); i++){
+            if(colBData.get(i).compareToIgnoreCase(stockCode)==0){
+                data.add(dbAccess.getRow(i));
+            }
+        }
         return data;
     }
 
