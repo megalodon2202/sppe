@@ -53,15 +53,6 @@ public class analysis {
             }
         }
 
-        
-    }
 
-    //helper method to generate summary
-    //returns a String Array
-    //format: per array
-    private String[] summaryForCustomer(String id){
-        String[] data = {};
-
-        return data;
     }
         }
