@@ -53,6 +53,11 @@ public class analysis {
             }
         }
 
+        //start processing for each customer
+        for(int i=0; i<id.size();i++){
+            //get all info
+            ArrayList<String[]>cusInfo = dbMetric.searchByCustomer(id.get(i));
 
+        }
     }
         }
