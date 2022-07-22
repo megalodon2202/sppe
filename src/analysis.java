@@ -21,7 +21,13 @@ public class analysis {
 
     //Get summary of a customer
     private String[] getSummary(String id){
+        String[]data={"NA","NA","NA","NA","NA"};
+        for(int i=0; i<customerSummary.size(); i++){
+            if(customerSummary.get(i)[0].compareToIgnoreCase(id)==0){
 
+            }
+        }
+        return data;
     }
 
     //Process summary of customers
