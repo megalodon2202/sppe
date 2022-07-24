@@ -3,6 +3,15 @@ public class console {
     public static void main(String[]args){
         System.out.println("... Start test console ...");
         metric info = new metric();
+
+        // Testing search by descriptions
+        ArrayList<String[]> descriptionRows = info.searchByDescription("HANGING heaRT");
+        for (String[] row:
+             descriptionRows) {
+            System.out.println(row[2]); // printing only description column
+        }
+
+
         //dbAccessor t = new dbAccessor();
         //System.out.println(t.getRow(0)[0]);
         //info.toString(info.searchByCountry("france"));
@@ -13,20 +22,20 @@ public class console {
         //info.toString(info.searchByCustomer("17850"));
 
         //test time constructor
-        tool t = new tool();
-        System.out.println("Date: "+t.getDate("12/1/10 8:26"));
-        System.out.println("Month: "+t.getMonth("12/1/10 8:26"));
-        System.out.println("Year: "+t.getYear("12/1/10 8:26"));
-        System.out.println("Hour: "+t.getHour("12/1/10 8:26"));
-        System.out.println("Min: "+t.getMin("12/1/10 8:26"));
-
-        //test filter
-        filter f = new filter();
-        System.out.println("Data validates: "+f.getApproval());
-
-        //random tests
-        String xyz = "MM/DD/YY HH:MM";
-        System.out.println(xyz.length());
+//        tool t = new tool();
+//        System.out.println("Date: "+t.getDate("12/1/10 8:26"));
+//        System.out.println("Month: "+t.getMonth("12/1/10 8:26"));
+//        System.out.println("Year: "+t.getYear("12/1/10 8:26"));
+//        System.out.println("Hour: "+t.getHour("12/1/10 8:26"));
+//        System.out.println("Min: "+t.getMin("12/1/10 8:26"));
+//
+//        //test filter
+//        filter f = new filter();
+//        System.out.println("Data validates: "+f.getApproval());
+//
+//        //random tests
+//        String xyz = "MM/DD/YY HH:MM";
+//        System.out.println(xyz.length());
         //end
         System.out.println("... End test console ...");
 
