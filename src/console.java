@@ -10,7 +10,13 @@ public class console {
         //filter f = new filter();
         //System.out.println(f.getApproval());
         //info.toString(info.searchByProduct("85123A"));
-        info.toString(info.searchByCustomer("17850"));
+        //info.toString(info.searchByCustomer("17850"));
+        tool t = new tool();
+        System.out.println(t.getDate("12/1/10 8:26"));
+        System.out.println(t.getMonth("12/1/10 8:26"));
+        System.out.println(t.getYear("12/1/10 8:26"));
+        System.out.println(t.getHour("12/1/10 8:26"));
+        System.out.println(t.getMin("12/1/10 8:26"));
     }
 
 
