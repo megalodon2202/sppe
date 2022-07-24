@@ -1,7 +1,5 @@
 public class tool {
-    public tool(){
-
-    }
+    public tool(){}
 
     //format:12/1/10 8:26
     //format: MM/DD/YY HH:MM
