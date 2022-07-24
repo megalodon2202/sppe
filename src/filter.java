@@ -19,20 +19,26 @@ public class filter {
         //check colD (int)
         ArrayList<String> colD = dbAccess.getColD();
         for(int i=1; i<colD.size(); i++){
-            if(colD.get(i)!=null||colD.get(i)!=""){
-                System.out.print(colD.get(i)+"\n");
+            if(colD.get(i)!=null && colD.get(i)!=""){
                 if(!isInt(colD.get(i))){
                     decision=false;
                 }
             }
         }
         //check colE
-        //check colF (float)
+        ArrayList<String>colE=dbAccess.getColE();
+        for(int i=1; i<colE.size();i++){
+            if(colE.get(i)!=null && colE.get(i)!=""){
+                if(!isValidTime(colE.get(i))){
+                    decision=false;
+                }
+            }
+        }
+        //check colF (double)
         ArrayList<String> colF = dbAccess.getColF();
         for(int i=1; i<colF.size(); i++){
-            if(colF.get(i)!=null||colF.get(i)!=""){
-                System.out.print(colF.get(i)+"\n");
-                if(!isFloat(colF.get(i))){
+            if(colF.get(i)!=null && colF.get(i)!=""){
+                if(!isDouble(colF.get(i))){
                     decision=false;
                 }
             }
@@ -54,11 +60,11 @@ public class filter {
         return localDecision;
     }
 
-    //checks if the data is integer type
-    private boolean isFloat(String data){
+    //checks if the data is double type
+    private boolean isDouble(String data){
         boolean localDecision =false;
         try {
-            float checker = Float.parseFloat(data);
+            double checker = Double.parseDouble(data);
             localDecision = true;
         } catch (NumberFormatException e) {
             System.out.println("Error while processing.");
@@ -66,11 +72,27 @@ public class filter {
         return localDecision;
     }
 
-
-
-    //checks if the data is a valid country
-    private boolean isCountry(String data){
-        boolean localDecision =false;
+    //Formats:
+    //M/D/YY H:MM
+    //MM/D/YY H:MM
+    //MM/DD/YY H:MM
+    //MM/DD/YY HH:MM
+    private boolean isValidTime(String data){
+        boolean localDecision=true;
+        char[] validChars = {};
+        String highestFormat = "MM/DD/YY HH:MM";
+        //max len
+        if(data.length()>highestFormat.length()){
+            localDecision=false;
+        }
+        //valid entries
+        for(int i=0;i<data.length();i++){
+            if(data.charAt(i)!=' '&&data.charAt(i)!='/'&&data.charAt(i)!=':'){
+                if(!isInt(Character.toString(data.charAt(i)))){
+                    localDecision=false;
+                }
+            }
+        }
         return localDecision;
     }
 
