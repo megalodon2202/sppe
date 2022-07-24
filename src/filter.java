@@ -13,6 +13,23 @@ public class filter {
     private void infoValidator(){
 
         //check colA
+        //all invoice num are int/numeric
+        //avoid the first alphabet
+        ArrayList<String>colA=dbAccess.getColA();
+        for(int i=1;i<colA.size();i++){
+            if(colA.get(i)!=null && colA.get(i)!="") {
+                if(!isInt(Character.toString(colA.get(i).charAt(0)))){
+                    if (!isInt(colA.get(i).substring(1))) {
+                        decision = false;
+                    }
+                }
+                else {
+                    if (!isInt(colA.get(i))) {
+                        decision = false;
+                    }
+                }
+            }
+        }
         //check colB
         //check colC
 

@@ -27,6 +27,7 @@ public class console {
         //random tests
         String xyz = "MM/DD/YY HH:MM";
         System.out.println(xyz.length());
+        //end
         System.out.println("... End test console ...");
 
     }
