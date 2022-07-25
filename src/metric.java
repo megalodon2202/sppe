@@ -128,6 +128,13 @@ public class metric {
         return false;
     }
 
+    //metric: search by invoice
+    public ArrayList<String[]>searchByInvoice(String invoice){
+        ArrayList<String[]>data=new ArrayList<String[]>();
+        //parsh
+        return data;
+    }
+
     //metric: request maintainer for the user interface
     //even if the request is not valid/complete
     //program won't crash and try to return by assumption
