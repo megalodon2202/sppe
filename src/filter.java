@@ -62,7 +62,6 @@ public class filter {
         }
         //check colG
         //check colH
-
     }
 
     //checks if the data is integer type
@@ -110,6 +109,16 @@ public class filter {
                 }
             }
         }
+        return localDecision;
+    }
+
+    //read all country from libCountry.txt
+    //match with input
+    //if matches true else false
+    //not case sensitive
+    private boolean isValidCountry(String data){
+        boolean localDecision=true;
+        //parsh
         return localDecision;
     }
 
