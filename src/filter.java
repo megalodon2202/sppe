@@ -116,7 +116,8 @@ public class filter {
     //match with input
     //if matches true else false
     //not case sensitive
-    private boolean isValidCountry(String data){
+    //note: for testing I've made it public, but will change it to private once it's working
+    public boolean isValidCountry(String data){
         boolean localDecision=true;
         //parsh
         return localDecision;
