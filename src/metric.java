@@ -58,29 +58,44 @@ public class metric {
     public ArrayList<String[]> searchByDate(String from, String upto) {
         ArrayList<String[]> data = new ArrayList<String[]>();
         // zihan
+        String regex = "[0-9]{2}/[0-9]{2}/[0-9]{2}";
+        if (from.matches(regex)) {
+            from += " 00:00";
+        }
+        if (upto.matches(regex)) {
+            upto += " 23:59";
+        }
         if (from.equals(upto)) {
-            for (String cur : dbAccess.getColE()) {
-                if (cur.split(" ")[0].equals(from)) {
-                    data.add(dbAccess.getRow(dbAccess.getColE().indexOf(cur)));
-                }
-            }
-        } else {
-            String regex = "[0-9]{2}/[0-9]{2}/[0-9]{2}";
-            if (from.matches(regex)) {
-                from += " 00:00";
-            }
-            if (upto.matches(regex)) {
-                upto += " 23:59";
-            }
             boolean i = true;
+            int j = 1;
             for (String cur : dbAccess.getColE()) {
                 if (i) {
                     i = false;
                     continue;
                 }
-                if (tool.timeCmpTo(cur, from) >= 0 && tool.timeCmpTo(cur, upto) <= 0) {
-                    data.add(dbAccess.getRow(dbAccess.getColE().indexOf(cur)));
+                if (cur.matches(regex)) {
+                    cur += " 00:00";
                 }
+                if (tool.timeCmpTo(cur, from) == 0) {
+                    data.add(dbAccess.getRow(j));
+                }
+                j++;
+            }
+        } else {
+            boolean i = true;
+            int j = 1;
+            for (String cur : dbAccess.getColE()) {
+                if (i) {
+                    i = false;
+                    continue;
+                }
+                if (cur.matches(regex)) {
+                    cur += " 00:00";
+                }
+                if (tool.timeCmpTo(cur, from) >= 0 && tool.timeCmpTo(cur, upto) <= 0) {
+                    data.add(dbAccess.getRow(j));
+                }
+                j++;
             }
         }
         return data;
@@ -93,8 +108,21 @@ public class metric {
     // returns an ArrayList of String Array
     public ArrayList<String[]> searchBySeason(String season) {
         // zihan
-        String[] timeRange = tool.seasonToTime(season.toLowerCase());
-        return this.searchByDate(timeRange[0], timeRange[1]);
+        ArrayList<String[]> result = new ArrayList<String[]>();
+        boolean i = true;
+        int j = 1;
+        for(String cur : dbAccess.getColE()) {
+            if(i) {
+                i = false;
+                continue;
+            }
+            if(tool.isInSeason(cur, season) == 1) {
+                 result.add(dbAccess.getRow(j));
+            }
+            j++;
+        }
+        return result;
+       
 
     }
 

@@ -41,36 +41,49 @@ public class tool {
     }
 
     // season to start and end time
-    public static String[] seasonToTime(String season) {
-        String[] time = new String[2];
+    public static int isInSeason(String date, String season) {
+        String[] spring = { "03/20 00:00", "06/20 23:59" };
+        String[] summer = { "06/21 00:00", "09/21 23:59" };
+        String[] fall = { "09/22 00:00", "12/22 23:59" };
+        String[] winter = { "12/23 00:00", "03/23 23:59" };
+        String start = "";
+        String end = "";
+        int result = -1;
         try {
-            switch (season) {
+
+            switch (season.toLowerCase()) {
                 case "spring":
-                    time[0] = "03/01/20 00:00";
-                    time[1] = "06/30/20 23:59";
+                    start = date.split("/")[2].split(" ")[0] + "/" + spring[0];
+                    end = date.split("/")[2].split(" ")[0]+ "/" + spring[1];
                     break;
                 case "summer":
-                    time[0] = "06/01/20 00:00";
-                    time[1] = "09/30/20 23:59";
+                    start = date.split("/")[2].split(" ")[0]+ "/" + summer[0];
+                    end = date.split("/")[2].split(" ")[0]+ "/" + summer[1];
                     break;
                 case "fall":
-                    time[0] = "09/01/20 00:00";
-                    time[1] = "12/31/20 23:59";
+                    start = date.split("/")[2].split(" ")[0]+ "/" + fall[0];
+                    end = date.split("/")[2].split(" ")[0]+ "/" + fall[1];
                     break;
                 case "winter":
-                    time[0] = "12/01/20 00:00";
-                    time[1] = "03/31/20 23:59";
+                    start = date.split("/")[2].split(" ")[0]+ "/" + winter[0];
+                    end = date.split("/")[2].split(" ")[0]+ "/" + winter[1];
                     break;
+
                 default:
-                    time[0] = "";
-                    time[1] = "";
-                    throw new IllegalArgumentException("Invalid season");
+                    throw new Exception("season is not spring, summer, fall, or winter");
             }
-            return time;
         } catch (Exception e) {
             System.out.println(e);
-            return time;
+            return result;
         }
+        if (timeCmpTo(start, date) == 0 || timeCmpTo(end, date) == 0
+                || (timeCmpTo(start, date) == -1 && timeCmpTo(end, date) == 1)) {
+            result = 1;
+        } else {
+            result = 0;
+        }
+        return result;
+
     }
 
     public static void main(String args[]) throws IOException {
@@ -81,7 +94,9 @@ public class tool {
         String time = "01/01/01 01:01";
         System.out.println(time.matches(regex));
         metric metrix = new metric();
-        ArrayList<String[]> result = metrix.searchByDate("12/1/10 8:26", "12/1/18 8:34");
+        // ArrayList<String[]> result = metrix.searchByDate("12/1/10 8:26", "12/1/10
+        // 8:26");
+        ArrayList<String[]> result = metrix.searchBySeason("summer");
         metrix.toString(result);
     }
 }
