@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class tool {
     //if time1 is before time2, return -1
     //if time1 is after time2, return 1
@@ -59,9 +62,15 @@ public class tool {
         return time;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) throws IOException{
         String timeOne="01/01/01 01:01";
         String timeTwo="02/01/01 01:01";
         System.out.println(timeCmpTo(timeOne,timeTwo));
+        String regex="[0-9]{2}/[0-9]{2}/[0-9]{2}";
+        String time="01/01/01 01:01";
+        System.out.println(time.matches(regex));
+        metric metrix=new metric();
+        ArrayList<String[]> result = metrix.searchByDate("12/1/10 8:26","12/1/18 8:34");
+        metrix.toString(result);
     }
 }

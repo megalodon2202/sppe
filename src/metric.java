@@ -3,16 +3,17 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+
 public class metric {
     private dbAccessor dbAccess;
 
     public metric() throws IOException {
         dbAccess = new dbAccessor();
-        URL url = new URL("https://nrc.canada.ca/en/certifications-evaluations-standards/canadas-official-time/3-when-do-seasons-start");
+        URL url = new URL(
+                "https://nrc.canada.ca/en/certifications-evaluations-standards/canadas-official-time/3-when-do-seasons-start");
         InputStream thepage = url.openStream();
         Scanner readRow = new Scanner(thepage);
-        
-        
+
     }
 
     // metric: Search by country name
@@ -59,12 +60,24 @@ public class metric {
         // zihan
         if (from.equals(upto)) {
             for (String cur : dbAccess.getColE()) {
-                if (cur.equals(from)) {
+                if (cur.split(" ")[0].equals(from)) {
                     data.add(dbAccess.getRow(dbAccess.getColE().indexOf(cur)));
                 }
             }
-        }else{
+        } else {
+            String regex = "[0-9]{2}/[0-9]{2}/[0-9]{2}";
+            if (from.matches(regex)) {
+                from += " 00:00";
+            }
+            if (upto.matches(regex)) {
+                upto += " 23:59";
+            }
+            boolean i = true;
             for (String cur : dbAccess.getColE()) {
+                if (i) {
+                    i = false;
+                    continue;
+                }
                 if (tool.timeCmpTo(cur, from) >= 0 && tool.timeCmpTo(cur, upto) <= 0) {
                     data.add(dbAccess.getRow(dbAccess.getColE().indexOf(cur)));
                 }
@@ -82,10 +95,8 @@ public class metric {
         // zihan
         String[] timeRange = tool.seasonToTime(season.toLowerCase());
         return this.searchByDate(timeRange[0], timeRange[1]);
-        
-    }
 
-   
+    }
 
     // metric: search by customer
     // note: each customer is identified by a unique id
