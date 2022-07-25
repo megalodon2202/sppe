@@ -6,7 +6,17 @@ public class tool {
     // if time1 is after time2, return 1
     // if time1 is the same as time2, return 0
     // time format: mm/dd/yy hh:mm
-
+    /**
+     * This method is used to compare two time strings.
+     * if time1 is before time2, return -1
+     * if time1 is after time2, return 1
+     * if time1 is the same as time2, return 0
+     * time format: mm/dd/yy hh:mm
+     * if there is a problem with the time format, return -2
+     * @param time1Arr
+     * @param time2Arr
+     * @return 
+     */
     public static int timeCmpTo(String time1Arr, String time2Arr) {
         String[] time1 = time1Arr.split(" ");
         String[] time2 = time2Arr.split(" ");
@@ -40,12 +50,22 @@ public class tool {
         }
     }
 
-    // season to start and end time
+    
+    /**
+     * This method is used to check if a time string is in a certain seasno range.
+     * if time is in the range, return 1
+     * if time is not in the range, return 0
+     * time format: mm/dd/yy hh:mm
+     * if there is a error, return -1 and print the error
+     * @param date
+     * @param season
+     * @return
+     */
     public static int isInSeason(String date, String season) {
-        String[] spring = { "03/20 00:00", "06/20 23:59" };
-        String[] summer = { "06/21 00:00", "09/21 23:59" };
-        String[] fall = { "09/22 00:00", "12/22 23:59" };
-        String[] winter = { "12/23 00:00", "03/23 23:59" };
+        String[] spring = { "03/21 00:00", "06/20 23:59" };
+        String[] summer = { "06/21 00:00", "09/20 23:59" };
+        String[] fall = { "09/21 00:00", "12/20 23:59" };
+        String[] winter = { "12/21 00:00", "03/20 23:59" };
         String start = "";
         String end = "";
         int result = -1;
