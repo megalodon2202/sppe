@@ -27,7 +27,6 @@ public class metric {
         ArrayList<String[]>data=new ArrayList<String[]>();
         //parsh
         ArrayList<String>colFData = dbAccess.getColF();
-
         for(int i=1; i<colFData.size(); i++){
             double price= Double.parseDouble(colFData.get(i));
             if(price>=low && price<=high){
@@ -43,18 +42,7 @@ public class metric {
     //if want an exact quantity, low==high
     public ArrayList<String[]> searchByUnitQuantity(int low, int high){
         ArrayList<String[]>data=new ArrayList<String[]>();
-        
-        ArrayList<String>colDData = dbAccess.getColD();
-        for(int i=1; i<colDData.size(); i++){
-            //if entry is empty string or null skip
-            if(colDData.get(i).compareTo("")== 0 || colDData.get(i).compareTo(null)==0){
-                continue;
-            }
-            int quantity=Integer.parseInt(colDData.get(i));
-            if(quantity>=low && quantity<=high){
-                data.add(dbAccess.getRow(i));
-            }
-        }
+        //parsh
         return data;
     }
 

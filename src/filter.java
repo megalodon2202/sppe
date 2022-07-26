@@ -118,7 +118,7 @@ public class filter {
     //not case sensitive
     //note: for testing I've made it public, but will change it to private once it's working
     public boolean isValidCountry(String data){
-        boolean localDecision=true;
+        boolean localDecision=false;
         //parsh
         //read from file and store in arraylist
         ArrayList<String> countryList = new ArrayList<String>();
