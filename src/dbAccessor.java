@@ -10,6 +10,8 @@ public class dbAccessor {
     private ArrayList<String> colG;
     private ArrayList<String> colH;
 
+    private ArrayList<String>uCsutomer;
+
     private ArrayList<String> database;
 
     public dbAccessor(){
@@ -94,5 +96,48 @@ public class dbAccessor {
     public String[] getRow(int n){
         String[] data = database.get(n).split(",");
         return data;
+    }
+
+    //get list of all unique customer ID:g
+    public ArrayList<String> getUcustomer(){
+        ArrayList<String>list=new ArrayList<String>();
+        //i=1 because 0 is title
+        for(int i=1; i<getColG().size(); i++){
+            if(!localSearch(list, getColG().get(i)) && getColG().get(i)!=""){
+                list.add(getColG().get(i));
+            }
+        }
+        return list;
+    }
+
+    //get list of all unique product
+    public ArrayList<String> getUproduct(){
+        ArrayList<String>list=new ArrayList<String>();
+        //jashan
+        return list;
+    }
+
+    //get list of all unique dates
+    public ArrayList<String> getUtime(){
+        ArrayList<String>list=new ArrayList<String>();
+        //jashan
+        return list;
+    }
+
+    //get list of all unique country
+    public ArrayList<String> getUcountry(){
+        ArrayList<String>list=new ArrayList<String>();
+        //jashan
+        return list;
+    }
+
+    //helper method to look for an item in the list
+    private boolean localSearch(ArrayList<String>list, String data){
+        for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).equals(data)) {
+                    return true;
+                }
+            }
+        return false;
     }
 }

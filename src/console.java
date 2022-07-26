@@ -5,7 +5,9 @@ public class console {
 
 
         metric info = new metric();
-        //dbAccessor t = new dbAccessor();
+        dbAccessor t = new dbAccessor();
+        //t.getUcustomer();
+        System.out.println(t.getUcustomer());
         //System.out.println(t.getRow(0)[0]);
         //info.toString(info.searchByCountry("france"));
         //System.out.println("Total result: "+info.searchByCountry("france").size());
