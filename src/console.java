@@ -2,6 +2,8 @@ import java.util.ArrayList;
 public class console {
     public static void main(String[]args){
         System.out.println("... Start test console ...");
+
+
         metric info = new metric();
         //dbAccessor t = new dbAccessor();
         //System.out.println(t.getRow(0)[0]);
@@ -31,7 +33,13 @@ public class console {
         // System.out.println(xyz.length());
         //end
         System.out.println("... End test console ...");
+    }
 
+    //Test function designated for metric class
+    void testMetric(boolean check){
+        if(check){
+            metric info = new metric();
+        }
     }
 
 
