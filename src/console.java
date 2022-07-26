@@ -11,22 +11,24 @@ public class console {
         //System.out.println(f.getApproval());
         //info.toString(info.searchByProduct("85123A"));
         //info.toString(info.searchByCustomer("17850"));
+        //info.toString(info.searchByUnitPrice(0,0));
+        //info.toString(info.searchByUnitPrice(3,3));
 
-        //test time constructor
-        tool t = new tool();
-        System.out.println("Date: "+t.getDate("12/1/10 8:26"));
-        System.out.println("Month: "+t.getMonth("12/1/10 8:26"));
-        System.out.println("Year: "+t.getYear("12/1/10 8:26"));
-        System.out.println("Hour: "+t.getHour("12/1/10 8:26"));
-        System.out.println("Min: "+t.getMin("12/1/10 8:26"));
+        // //test time constructor
+        // tool t = new tool();
+        // System.out.println("Date: "+t.getDate("12/1/10 8:26"));
+        // System.out.println("Month: "+t.getMonth("12/1/10 8:26"));
+        // System.out.println("Year: "+t.getYear("12/1/10 8:26"));
+        // System.out.println("Hour: "+t.getHour("12/1/10 8:26"));
+        // System.out.println("Min: "+t.getMin("12/1/10 8:26"));
 
-        //test filter
-        filter f = new filter();
-        System.out.println("Data validates: "+f.getApproval());
+        // //test filter
+        // filter f = new filter();
+        // System.out.println("Data validates: "+f.getApproval());
 
-        //random tests
-        String xyz = "MM/DD/YY HH:MM";
-        System.out.println(xyz.length());
+        // //random tests
+        // String xyz = "MM/DD/YY HH:MM";
+        // System.out.println(xyz.length());
         //end
         System.out.println("... End test console ...");
 

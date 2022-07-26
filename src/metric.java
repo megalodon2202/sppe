@@ -23,9 +23,17 @@ public class metric {
     //returns an ArrayList of String Array
     //low<=x & high>=x
     //if want an exact price, low==high
-    public ArrayList<String[]> searchByUnitPrice(int low, int high){
+    public ArrayList<String[]> searchByUnitPrice(double low, double high){
         ArrayList<String[]>data=new ArrayList<String[]>();
         //parsh
+        ArrayList<String>colFData = dbAccess.getColF();
+
+        for(int i=1; i<colFData.size(); i++){
+            double price= Double.parseDouble(colFData.get(i));
+            if(price>=low && price<=high){
+                data.add(dbAccess.getRow(i));
+            }
+        }
         return data;
     }
 
@@ -35,7 +43,18 @@ public class metric {
     //if want an exact quantity, low==high
     public ArrayList<String[]> searchByUnitQuantity(int low, int high){
         ArrayList<String[]>data=new ArrayList<String[]>();
-        //parsh
+        
+        ArrayList<String>colDData = dbAccess.getColD();
+        for(int i=1; i<colDData.size(); i++){
+            //if entry is empty string or null skip
+            if(colDData.get(i).compareTo("")== 0 || colDData.get(i).compareTo(null)==0){
+                continue;
+            }
+            int quantity=Integer.parseInt(colDData.get(i));
+            if(quantity>=low && quantity<=high){
+                data.add(dbAccess.getRow(i));
+            }
+        }
         return data;
     }
 
@@ -131,7 +150,11 @@ public class metric {
     //metric: search by invoice
     public ArrayList<String[]>searchByInvoice(String invoice){
         ArrayList<String[]>data=new ArrayList<String[]>();
-        //parsh
+        for(int i=0; i<dbAccess.getColA().size(); i++){
+            if(dbAccess.getColA().get(i).compareToIgnoreCase(invoice)==0){
+                data.add(dbAccess.getRow(i));
+            }
+        }
         return data;
     }
 

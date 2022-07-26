@@ -120,6 +120,31 @@ public class filter {
     public boolean isValidCountry(String data){
         boolean localDecision=true;
         //parsh
+        //read from file and store in arraylist
+        ArrayList<String> countryList = new ArrayList<String>();
+        try {
+            String line;
+            String[] lineSplit;
+            String fileName = "libCountry.txt";
+            java.io.File file = new java.io.File(fileName);
+            java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(file));
+            while ((line = br.readLine()) != null) {
+                lineSplit = line.split(",");
+                //convert to all lower case
+                lineSplit[0] = lineSplit[0].toLowerCase();
+                countryList.add(lineSplit[0]);
+            }
+            br.close();
+        } catch (Exception e) {
+            System.out.println("Error while processing.");
+        }
+        System.out.println(countryList);
+        //match with input
+        for(int i=0;i<countryList.size();i++){
+            if(data.toLowerCase().equals(countryList.get(i))){
+                localDecision=true;
+            }
+        }
         return localDecision;
     }
 
