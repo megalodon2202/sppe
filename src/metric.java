@@ -55,6 +55,17 @@ public class metric {
     // use of date constructor (tool.java)
     // from<=x & upto>=x
     // if want an exact time, from==upto
+    /**
+     * metric: search by date
+     * date format mm/dd/yy hh:mm
+     * use of date constructor (tool.java)
+     * from<=x & upto>=x
+     * if want an exact time, from==upto
+     * 
+     * @param from
+     * @param upto
+     * @return
+     */
     public ArrayList<String[]> searchByDate(String from, String upto) {
         ArrayList<String[]> data = new ArrayList<String[]>();
         // zihan
@@ -106,23 +117,33 @@ public class metric {
     // timing
     // https://nrc.canada.ca/en/certifications-evaluations-standards/canadas-official-time/3-when-do-seasons-start
     // returns an ArrayList of String Array
+    /**
+     * options: spring, summer, fall, winter
+     * season timing:
+     * spring = { "03/21 00:00", "06/20 23:59" }
+     * summer = { "06/21 00:00", "09/20 23:59" }
+     * fall = { "09/21 00:00", "12/20 23:59" }
+     * winter = { "12/21 00:00", "03/20 23:59" }
+     * 
+     * @param season
+     * @return
+     */
     public ArrayList<String[]> searchBySeason(String season) {
         // zihan
         ArrayList<String[]> result = new ArrayList<String[]>();
         boolean i = true;
         int j = 1;
-        for(String cur : dbAccess.getColE()) {
-            if(i) {
+        for (String cur : dbAccess.getColE()) {
+            if (i) {
                 i = false;
                 continue;
             }
-            if(tool.isInSeason(cur, season) == 1) {
-                 result.add(dbAccess.getRow(j));
+            if (tool.isInSeason(cur, season) == 1) {
+                result.add(dbAccess.getRow(j));
             }
             j++;
         }
         return result;
-       
 
     }
 
