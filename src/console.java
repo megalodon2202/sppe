@@ -8,6 +8,11 @@ public class console {
         dbAccessor t = new dbAccessor();
         //t.getUcustomer();
         System.out.println(t.getUcustomer());
+
+        System.out.println(t.getUcountry());
+        System.out.println(t.getUproduct());
+        System.out.println(t.getUtime());
+
         //System.out.println(t.getRow(0)[0]);
         //info.toString(info.searchByCountry("france"));
         //System.out.println("Total result: "+info.searchByCountry("france").size());

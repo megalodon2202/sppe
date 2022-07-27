@@ -103,7 +103,7 @@ public class dbAccessor {
         ArrayList<String>list=new ArrayList<String>();
         //i=1 because 0 is title
         for(int i=1; i<getColG().size(); i++){
-            if(!localSearch(list, getColG().get(i)) && getColG().get(i)!=""){
+            if( getColG().get(i)!="" && !localSearch(list, getColG().get(i).toLowerCase()) ){
                 list.add(getColG().get(i));
             }
         }
@@ -113,21 +113,39 @@ public class dbAccessor {
     //get list of all unique product
     public ArrayList<String> getUproduct(){
         ArrayList<String>list=new ArrayList<String>();
-        //jashan
+        ArrayList<String> column = getColC();
+
+        for (int i = 0; i < column.size(); i++) {
+            if ( column.get(i)!="" && !localSearch(list, column.get(i)) ) {
+                list.add(column.get(i));
+            }
+        }
+
         return list;
     }
 
     //get list of all unique dates
     public ArrayList<String> getUtime(){
         ArrayList<String>list=new ArrayList<String>();
-        //jashan
+        ArrayList<String> column = getColE();
+
+        for (int i = 0; i < column.size(); i++) {
+            if ( column.get(i)!="" && !localSearch(list, column.get(i)) ) {
+                list.add(column.get(i));
+            }
+        }
         return list;
     }
 
     //get list of all unique country
     public ArrayList<String> getUcountry(){
         ArrayList<String>list=new ArrayList<String>();
-        //jashan
+        ArrayList<String> column = getColH();
+        for (int i = 0; i < column.size(); i++) {
+            if ( column.get(i)!="" && !localSearch(list, column.get(i)) ) {
+                list.add(column.get(i));
+            }
+        }
         return list;
     }
 
@@ -140,4 +158,5 @@ public class dbAccessor {
             }
         return false;
     }
+
 }
