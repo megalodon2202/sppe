@@ -107,16 +107,15 @@ public class tool {
     }
 
     public static void main(String args[]) throws IOException {
-        String timeOne = "01/01/01 01:01";
-        String timeTwo = "02/01/01 01:01";
-        System.out.println(timeCmpTo(timeOne, timeTwo));
-        String regex = "[0-9]{2}/[0-9]{2}/[0-9]{2}";
-        String time = "01/01/01 01:01";
-        System.out.println(time.matches(regex));
-        metric metrix = new metric();
-        // ArrayList<String[]> result = metrix.searchByDate("12/1/10 8:26", "12/1/10
-        // 8:26");
-        ArrayList<String[]> result = metrix.searchBySeason("summer");
-        metrix.toString(result);
+        metric info = new metric();
+        info.toString(info.searchByDate("12/1/10 8:26", "12/1/10 8:34"));
+        info.toString(info.searchByDate("12/1/10 8:26", "12/1/10 8:26"));
+        info.toString(info.searchByDate("12/1/10", "12/1/10"));
+        info.toString(info.searchByDate("12/1/10", "12/1/10"));
+        
+        //test metric by season
+        info.toString(info.searchBySeason("summer"));
+        info.toString(info.searchBySeason("winter"));
+        info.toString(info.searchBySeason("fall"));
     }
 }

@@ -69,16 +69,13 @@ public class metric {
     public ArrayList<String[]> searchByDate(String from, String upto) {
         ArrayList<String[]> data = new ArrayList<String[]>();
         // zihan
-        String regex = "[0-9]{2}/[0-9]{2}/[0-9]{2}";
-        if (from.matches(regex)) {
-            from += " 00:00";
-        }
-        if (upto.matches(regex)) {
-            upto += " 23:59";
-        }
+        String regex = "[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,2}";
         if (from.equals(upto)) {
             boolean i = true;
             int j = 1;
+            if (from.matches(regex)) {
+                from += " 00:00";
+            }
             for (String cur : dbAccess.getColE()) {
                 if (i) {
                     i = false;
@@ -95,6 +92,12 @@ public class metric {
         } else {
             boolean i = true;
             int j = 1;
+            if (from.matches(regex)) {
+                from += " 00:00";
+            }
+            if (upto.matches(regex)) {
+                upto += " 23:59";
+            }
             for (String cur : dbAccess.getColE()) {
                 if (i) {
                     i = false;
