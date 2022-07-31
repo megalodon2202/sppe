@@ -115,12 +115,11 @@ public class dbAccessor {
         ArrayList<String>list=new ArrayList<String>();
         ArrayList<String> column = getColC();
 
-        for (int i = 0; i < column.size(); i++) {
+        for (int i = 1; i < column.size(); i++) {
             if ( column.get(i)!="" && !localSearch(list, column.get(i)) ) {
                 list.add(column.get(i));
             }
         }
-
         return list;
     }
 
@@ -129,7 +128,7 @@ public class dbAccessor {
         ArrayList<String>list=new ArrayList<String>();
         ArrayList<String> column = getColE();
 
-        for (int i = 0; i < column.size(); i++) {
+        for (int i = 1; i < column.size(); i++) {
             if ( column.get(i)!="" && !localSearch(list, column.get(i)) ) {
                 list.add(column.get(i));
             }
@@ -141,7 +140,7 @@ public class dbAccessor {
     public ArrayList<String> getUcountry(){
         ArrayList<String>list=new ArrayList<String>();
         ArrayList<String> column = getColH();
-        for (int i = 0; i < column.size(); i++) {
+        for (int i = 1; i < column.size(); i++) {
             if ( column.get(i)!="" && !localSearch(list, column.get(i)) ) {
                 list.add(column.get(i));
             }
