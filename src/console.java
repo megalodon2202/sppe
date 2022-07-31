@@ -42,12 +42,5 @@ public class console {
         System.out.println("... End test console ...");
     }
 
-    //Test function designated for metric class
-    void testMetric(boolean check){
-        if(check){
-            metric info = new metric();
-        }
-    }
-
 
 }
