@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 public class analysis {
     private metric dbMetric;
-    private ArrayList<String[]>customerSummary;
+    private String[]customerSummary;
     public analysis(){
         dbMetric = new metric();
-        customerSummary=new ArrayList<String[]>();
+        customerSummary=new String[4];
         summaryProcessor();
     }
 
@@ -23,11 +23,7 @@ public class analysis {
     //format for each customer:
     private String[] getSummary(String id){
         String[]data={"NA","NA","NA","NA","NA"};
-        for(int i=0; i<customerSummary.size(); i++){
-            if(customerSummary.get(i)[0].compareToIgnoreCase(id)==0){
-                data=customerSummary.get(i);//replace
-            }
-        }
+
         return data;
     }
 
