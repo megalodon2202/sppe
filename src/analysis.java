@@ -62,6 +62,7 @@ public class analysis {
         }
     }
 
+    //parsh
     //use getUcustomer from dbAcessor class to get all customers
     //generate summery for each customer and populate the followings (customerSummary)
     //[id][products name-quantity (each product seperated by comma)][total purchase - location(each product seperated by comma)][country(s)]
@@ -71,8 +72,21 @@ public class analysis {
         //customerSummary
     }
 
+    //zihan
     //returns all rows associated with the id
-    void genCustomerHistory(String id){
+    ArrayList<String[]> genCustomerHistory(String id){
+        ArrayList<String[]>data = new ArrayList<String[]>();
+        return data;
+    }
+
+    //jashan
+    //format [num of purchased products][num of country]....tbd
+    //will discuss the info on chat later but format will be same
+    int[] genCustomerNumericSummery(){
+        int[] data = new int[2];
+        return data;
 
     }
+
+
         }
