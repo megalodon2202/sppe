@@ -10,12 +10,12 @@ public class analysis {
 
     public void analyzeByCustomer(String id) {
         ArrayList<String[]> localData = dbMetric.searchByCustomer(id);
-
         //summary
 
         //comparison
 
         //whole info return & change void
+
     }
 
 
@@ -60,5 +60,19 @@ public class analysis {
             ArrayList<String[]>cusInfo = dbMetric.searchByCustomer(id.get(i));
 
         }
+    }
+
+    //use getUcustomer from dbAcessor class to get all customers
+    //generate summery for each customer and populate the followings (customerSummary)
+    //[id][products name-quantity (each product seperated by comma)][total purchase - location(each product seperated by comma)][country(s)]
+    //example[1234][ab bottle-2,brush-1][200-france,100-united kingdom][france,united kingdom]
+    //note each row is summery of a specific customer
+    void genCustomerSum(){
+        //customerSummary
+    }
+
+    //returns all rows associated with the id
+    void genCustomerHistory(String id){
+
     }
         }
