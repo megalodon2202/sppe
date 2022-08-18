@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+
 public class analysis {
     private metric dbMetric;
     private String[]customerSummary;
@@ -78,11 +80,56 @@ public class analysis {
     //jashan
     //format [num of purchased products][num of country]....tbd
     //will discuss the info on chat later but format will be same
-    int[] genCustomerNumericSummery(){
+    int[] genCustomerNumericSummary(){
         int[] data = new int[2];
-        return data;
 
+        dbAccessor accessor = new dbAccessor();
+        ArrayList<String> customers = accessor.getUcustomer();
+        ArrayList<String[]> customerData;
+        HashSet<String> setOfCountries = new HashSet<>();
+        HashSet<String> setOfProducts = new HashSet<>();
+        int totalQuantity = 0;
+        int totalCountries = 0;
+        int totalProducts  = 0;
+
+        for (String customerID: customers) {
+            totalQuantity = 0;
+            customerData = dbMetric.searchByCustomer(customerID);
+
+            for ( String[] row: customerData) { // single row data of a specific customer
+                if ( row != null && !row[3].equals("") && !row[7].equals("") && !row[2].equals("") ) {
+                    int quantity = convertToInt(row[3]); // quantity;
+                    if (quantity != -1)
+                        totalQuantity += quantity;
+
+                    setOfProducts.add(row[2]); // name of the product -> description
+                    setOfCountries.add(row[7]); // country
+                }
+            }
+
+            totalProducts = setOfProducts.size();
+            totalCountries = setOfCountries.size();
+
+            System.out.println( "CUSTOMER: " + customerID + ", Quantity: " + totalQuantity + ", Products: "+ totalProducts +", Countries: "+ totalCountries );
+
+            setOfProducts.clear();
+            setOfCountries.clear();
+        }
+        return data;
     }
 
 
+    private int convertToInt(String data) {
+        int result = -1;
+
+        try {
+            result = Integer.parseInt(data);
         }
+        catch (Exception e) {
+            System.out.println("An error occurred in Analysis file, data type invalid.");
+        }
+
+        return result;
+    }
+
+}
